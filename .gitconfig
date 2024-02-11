@@ -1,0 +1,21 @@
+# This is Git's per-user configuration file.
+[user]
+	name = I Dewa Putu Ardi Nusawan
+    email = ardi.nusawan13@gmail.com
+[core]
+    pager = delta
+	autocrlf = input
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+[init]
+	defaultBranch = main
