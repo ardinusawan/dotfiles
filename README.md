@@ -24,7 +24,7 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 1. Install [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
 
-1. Install nodejs 16.14.0
+1. Install nodejs
 
     ```sh
     asdf install nodejs 20.11.0
