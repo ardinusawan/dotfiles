@@ -19,3 +19,7 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 ## Multiple Github Account
 
 1. Follow [this](https://www.linkedin.com/pulse/how-use-multiple-github-accounts-macos-atish-maske/)
+
+## Credit
+
+Thanks to [Dreams of Autonomy](https://www.youtube.com/watch?v=y6XCebnB9gs)
