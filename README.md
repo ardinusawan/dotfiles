@@ -55,8 +55,10 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 1. Open nvim, execute
 
     ```sh
+    :source %
     :PlugInstall
     :CocInstall coc-json coc-tsserver coc-go coc-jedi
+    :call mkdp#util#install()
     ```
 
 1. Install and config [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
