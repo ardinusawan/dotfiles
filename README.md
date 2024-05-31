@@ -6,6 +6,10 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 ## Pre-required
 
+1. Install [ohmyzsh](https://ohmyz.sh/)
+
+1. Install [ohmyzsh plugin](https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df
+
 1. Install [homebrew](https://brew.sh/)
 
 1. Install [iTerm2](https://iterm2.com/)
