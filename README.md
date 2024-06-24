@@ -26,9 +26,7 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 1. Install [amix/vimrc](https://github.com/amix/vimrc) (awesome version)
 
-1. mkdir ~/.config/nvim
-
-1. ~/.vimrc to ~/.config/nvim/init.vim
+1. [Vim to neovim](https://neovim.io/doc/user/nvim.html)
 
 1. Install [asdf](https://asdf-vm.com)
 
