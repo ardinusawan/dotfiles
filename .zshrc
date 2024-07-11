@@ -148,3 +148,6 @@ alias ctags="`brew --prefix`/bin/ctags"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# make uuidgen lowercase
+alias uuidgen='uuidgen | tr A-F a-f'
