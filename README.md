@@ -57,7 +57,7 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
     ```sh
     :source %
     :PlugInstall
-    :CocInstall coc-json coc-tsserver coc-go coc-jedi
+    :CocInstall coc-json coc-tsserver coc-jedi
     :call mkdp#util#install()
     ```
 
