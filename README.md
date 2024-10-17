@@ -76,6 +76,10 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 1. [Git Delta](https://github.com/dandavison/delta)
 
+1. [LazyVim](https://www.lazyvim.org/installation)
+
+1. [LazyVim Font](https://witcisco.com/posts/add-file-icons-to-lazyvim/)
+
 ## Setup
 
 1. brew install stow
