@@ -1,6 +1,17 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": [
-    "prisma"
-  ]
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
+    }
+  },
+  "[typescript]": {
+    "coc.preferences.formatOnSave": true
+  },
+  "[prisma]": {
+    "coc.preferences.formatOnSave": true
+  }
 }
 
