@@ -8,7 +8,7 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 1. Install [ohmyzsh](https://ohmyz.sh/)
 
-1. Install [tinker](https://tinkle.pqrs.org/) 
+1. Install [tinker](https://tinkle.pqrs.org/)
 
 1. Install [ohmyzsh plugin](https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df)
 
@@ -80,16 +80,21 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 1. [LazyVim Font](https://witcisco.com/posts/add-file-icons-to-lazyvim/)
 
+1. lazygit `brew install jesseduffield/lazygit/lazygit`
+
 ## Setup
 
 1. brew install stow
 1. execute
+
     ```
     stow .
     ```
+
 1. when conflict
+
     ```
-    stow adapt .
+    stow --adopt .
     ```
 
 ## Multiple Github Account
