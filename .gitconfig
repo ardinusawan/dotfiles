@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = I Dewa Putu Ardi Nusawan
-    email = ardi.nusawan13@gmail.com
+	email = ardi.nusawan13@gmail.com
 [core]
     pager = delta
 	autocrlf = input
@@ -19,3 +19,8 @@
     colorMoved = default
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

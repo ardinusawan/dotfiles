@@ -66,6 +66,19 @@ Plug 'honza/vim-snippets'
 
 Plug 'hexdigest/gounit-vim'
 
+Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'tag': 'v2.15' }
+
+Plug 'supermaven-inc/supermaven-nvim'
+
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
+"
+"" (Optional) Multi-entry selection UI.
+"Plug 'junegunn/fzf'
+
 "" Initialize plugin system
 call plug#end()
 
@@ -306,3 +319,42 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expand
 autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
 autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
 autocmd FileType typescriptreact setlocal shiftwidth=2 tabstop=2 softtabstop=0 expandtab
+
+" vimtex
+" This is necessary for VimTeX to load properly. The "indent" is optional.
+" Note: Most plugin managers will do this automatically!
+filetype plugin indent on
+
+" This enables Vim's and neovim's syntax-related features. Without this, some
+" VimTeX features will not work (see ":help vimtex-requirements" for more
+" info).
+" Note: Most plugin managers will do this automatically!
+syntax enable
+
+" Viewer options: One may configure the viewer either by specifying a built-in
+" viewer method:
+let g:vimtex_view_method = 'zathura'
+
+" Or with a generic interface:
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+
+" VimTeX uses latexmk as the default compiler backend. If you use it, which is
+" strongly recommended, you probably don't need to configure anything. If you
+" want another compiler backend, you can change it as follows. The list of
+" supported backends and further explanation is provided in the documentation,
+" see ":help vimtex-compiler".
+"let g:vimtex_compiler_method = 'latexrun'
+
+" Most VimTeX mappings rely on localleader and this can be changed with the
+" following line. The default is usually fine and is the symbol "\".
+let maplocalleader = ","
+
+"" Launch gopls when Go files are in use
+"let g:LanguageClient_serverCommands = {
+"       \ 'go': ['gopls']
+"       \ }
+"" Run gofmt on save
+"autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+"let g:go_def_mode='gopls'
+"let g:go_info_mode='gopls'
