@@ -46,7 +46,7 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 1. Install Plug
 
-    ```
+    ```sh
 
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -87,13 +87,13 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 1. brew install stow
 1. execute
 
-    ```
+    ```sh
     stow .
     ```
 
 1. when conflict
 
-    ```
+    ```sh
     stow --adopt .
     ```
 
