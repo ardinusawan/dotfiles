@@ -6,9 +6,9 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 ## Pre-required
 
-1. brew install stow
-
 1. `xcode-select --install`
+
+1. ```brew install stow ripgrep fd ack ctags jesseduffield/lazygit/lazygit tig```
 
 1. Install [ohmyzsh](https://ohmyz.sh/)
 
@@ -24,10 +24,6 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 
 1. Install [neovim](https://neovim.io/)
 
-1. Install ack `brew install ack`
-
-1. Install ctags `brew install ctags`
-
 1. Install [asdf](https://asdf-vm.com)
 
 1. Install [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
@@ -41,8 +37,6 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 1. Make that version of nodejs global
 
 1. [LazyVim Font](https://witcisco.com/posts/add-file-icons-to-lazyvim/)
-
-1. lazygit `brew install jesseduffield/lazygit/lazygit`
 
 1. Install font
     `brew install --cask font-jetbrains-mono-nerd-font`
@@ -90,4 +84,3 @@ GNU Stow is a symlink farm manager which takes distinct packages of software and
 ## Credit
 
 - Stow: Thanks to [Dreams of Autonomy](https://www.youtube.com/watch?v=y6XCebnB9gs)
-
