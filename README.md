@@ -1,86 +1,171 @@
-# dotfiles
+# Dotfiles
 
-This setup using [stow](https://www.gnu.org/software/stow/)
+This setup uses [GNU Stow](https://www.gnu.org/software/stow/).
 
-GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located in separate directories on the filesystem, and makes them appear to be installed in the same place.
+GNU Stow is a symlink farm manager which takes distinct packages of software and/or data located in separate directories on the filesystem, and makes them appear to be installed in the same place. Perfect for managing dotfiles.
+
+---
 
 ## Pre-required
 
-1. `xcode-select --install`
+1. Install Xcode CLI tools (macOS):
 
-1. ```brew install stow ripgrep fd ack ctags jesseduffield/lazygit/lazygit tig```
+   ```sh
+   xcode-select --install
+   ```
 
-1. Install [ohmyzsh](https://ohmyz.sh/)
+2. Install packages:
 
-1. Install [Clippy](https://github.com/Clipy/Clipy)
+   ```sh
+   brew install stow ripgrep fd ack ctags jesseduffield/lazygit/lazygit tig git-delta jq
+   ```
 
-1. Install [ohmyzsh plugin](https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df)
+3. Install [Homebrew](https://brew.sh/)
 
-1. Install [homebrew](https://brew.sh/)
+4. Install [oh-my-zsh](https://ohmyz.sh/)
 
-1. Install [iTerm2](https://iterm2.com/)
+5. Install [Clipy](https://github.com/Clipy/Clipy)
 
-1. Install [tmux](https://github.com/tmux/tmux/wiki)
+6. Install [oh-my-zsh plugin](https://gist.github.com/n1snt/454b879b8f0b7995740ae04c5fb5b7df)
 
-1. Install [neovim](https://neovim.io/)
+7. Install [iTerm2](https://iterm2.com/)
 
-1. Install [asdf](https://asdf-vm.com)
+8. Install [tmux](https://github.com/tmux/tmux/wiki)
 
-1. Install [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
+9. Install [Neovim](https://neovim.io/)
 
-1. Install nodejs
+10. Install [asdf](https://asdf-vm.com)
+
+11. Install [asdf-nodejs](https://github.com/asdf-vm/asdf-nodejs)
+
+12. Install Node.js:
 
     ```sh
     asdf install nodejs 22.18.0
+    asdf global nodejs 22.18.0
     ```
 
-1. Make that version of nodejs global
+13. [LazyVim Font Setup](https://witcisco.com/posts/add-file-icons-to-lazyvim/)
 
-1. [LazyVim Font](https://witcisco.com/posts/add-file-icons-to-lazyvim/)
+    ```sh
+    brew install --cask font-jetbrains-mono-nerd-font
+    brew install --cask font-fira-code-nerd-font
+    ```
 
-1. Install font
-    `brew install --cask font-jetbrains-mono-nerd-font`
-    `brew install --cask font-fira-code-nerd-font`
+    Configure in iTerm2 → Preferences → Profiles → Text → Font.  
+    - Pick JetBrainsMono Nerd Font (or whichever you installed).  
+    - Ensure it says **Nerd Font**, not just JetBrains Mono.  
+    - Uncheck “Use a different font for non-ASCII text”.  
+    - Restart iTerm2.
 
-1. Configure iTerm2 to use it
-    - Open iTerm2 → Preferences → Profiles → Text.
-    - nUnder Font, pick JetBrainsMono Nerd Font (or whichever you installed).
-    - ⚠️ Important: make sure it says Nerd Font, not just “JetBrains Mono”.
-    - Uncheck: “Use a different font for non-ASCII text” (this is a classic cause of missing icons).
-    - Restart iTerm2 (quit fully, ⌘Q).
+14. Install and configure [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 
-1. Install and config [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
-
-1. sync dotfiles `stow .`
-
-1. Install [TPM](https://github.com/tmux-plugins/tpm)
+15. Install [TPM](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager):
 
     ```sh
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     tmux source ~/.tmux.conf
     ```
 
-    Press prefix + I (capital i, as in Install) to fetch the plugin.
+    Press prefix + **I** (capital i) to fetch the plugin.
 
+16. Instal go-dlv `go install github.com/go-delve/delve/cmd/dlv@latest`
+
+---
 
 ## Sync using Stow
 
-1. execute
+### 1. Basic usage
 
-    ```sh
-    stow .
-    ```
+From the `dotfiles/` repo root, run:
 
-1. when conflict
+```sh
+stow zsh
+stow tmux
+stow git
+stow nvim
+```
 
-    ```sh
-    stow --adopt .
-    ```
+### 2. When conflicts occur
 
-## Multiple Github Account
+If you see warnings like:
 
-1. Follow [this](https://www.linkedin.com/pulse/how-use-multiple-github-accounts-macos-atish-maske/)
+```
+cannot stow .../.zshrc over existing target ~/.zshrc
+```
+
+- **Adopt existing files into the repo** (if `$HOME` has the latest):
+
+  ```sh
+  stow --adopt zsh
+  ```
+
+- **Backup and remove old files** (if repo is the source of truth):
+
+  ```sh
+  mv ~/.zshrc ~/.zshrc.bak
+  stow zsh
+  ```
+
+### 3. `.stowrc`
+
+We keep a `.stowrc` in the repo root:
+
+```
+--target=~
+--verbose
+--restow
+```
+
+This makes `stow` default to home directory, be verbose, and update symlinks.  
+Add `--adopt` if you want stow to move conflicts automatically (⚠️ use with care).
+
+### 4. Fresh machine workflow
+
+1. Clone repo:
+
+   ```sh
+   git clone git@github.com:ardinusawan/dotfiles.git ~/Code/dotfiles
+   cd ~/Code/dotfiles
+   ```
+
+2. Run stow:
+
+   ```sh
+   stow zsh tmux git nvim
+   ```
+
+3. Done.
+
+---
+
+## Multiple GitHub Accounts
+
+Configure `~/.ssh/config`:
+
+```ssh-config
+# Personal
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_personal
+
+# Work
+Host github-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_work
+```
+
+Clone work repos with:
+
+```sh
+git clone git@github-work:org/repo.git
+```
+
+---
 
 ## Credit
 
-- Stow: Thanks to [Dreams of Autonomy](https://www.youtube.com/watch?v=y6XCebnB9gs)
+- [GNU Stow](https://www.gnu.org/software/stow/)
+- Thanks to [Dreams of Autonomy](https://www.youtube.com/watch?v=y6XCebnB9gs)
